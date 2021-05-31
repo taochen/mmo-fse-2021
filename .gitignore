@@ -1,0 +1,11 @@
+
+
+# Other files and folders
+.classpath
+.DS_Store
+.project
+.settings/
+target/
+temp/
+MOEAD.log
+

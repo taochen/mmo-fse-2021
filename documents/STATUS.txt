@@ -1,0 +1,3 @@
+We wish to apply for the Artifacts Available, Artifacts Functional and Artifacts Reusable badges.
+
+The data and code are publicly available on Github, and the executable code has also been designed in a way that can be easily run.

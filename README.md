@@ -2,7 +2,7 @@
 
 This repository contains the data and code for the following paper:
 
-> Tao Chen and Miqing Li. 2021. Multi-Objectivizing Software Configuration Tuning. In Proceedings of The 29th ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2021). ACM, 13 pages.
+> Tao Chen and Miqing Li. 2021. Multi-Objectivizing Software Configuration Tuning. In Proceedings of The 29th ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2021). ACM, 13 pages. DOI: 10.1145/3468264.3468555
 
 ## Introduction
 

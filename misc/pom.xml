@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.sas</groupId>
+  <artifactId>benchmark</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+ <packaging>jar</packaging>
+ 
+  <name>benchmark</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+  
+    <properties>
+   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.6</maven.compiler.source>
+    <maven.compiler.target>1.6</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-math3</artifactId>
+			<version>3.0</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		  <dependency>
+			<groupId>org.ssase</groupId>
+			<artifactId>ssase-core</artifactId>
+			<version>1.0.1</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.moead</groupId>
+			<artifactId>org.moead-core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+  </dependencies>
+
+	<build> 
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+
+						<phase>process-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/classes</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/main/java/resources</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- <plugin> <artifactId>maven-assembly-plugin</artifactId> <configuration> 
+				<descriptorRefs> <descriptorRef>jar-with-dependencies</descriptorRef> </descriptorRefs> 
+				<archive> <manifest> <addClasspath>true</addClasspath> <mainClass>org.ssascaling.util.Ssascaling</mainClass> 
+				</manifest> </archive> </configuration> <executions> <execution> <phase>package</phase> 
+				<goals> <goal>single</goal> </goals> </execution> </executions> </plugin> -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+
+				<configuration>
+
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<mainClass>org.sas.benchmark.sm.spo.published.AutoRun</mainClass>
+						</manifest>
+					</archive>
+					 <excludes>
+                        <exclude>org/sas/benchmark/dbases/</exclude>
+                        <exclude>org/sas/benchmark/froas/</exclude>
+                        <exclude>org/sas/benchmark/pw/</exclude>
+                        <exclude>org/sas/benchmark/req/</exclude>
+                        <exclude>org/sas/benchmark/sm/nrp/</exclude>
+                        <exclude>org/sas/benchmark/sm/spo/*</exclude>
+                        <exclude>org/sas/benchmark/sm/*</exclude>
+                     </excludes>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.dstovall</groupId>
+				<artifactId>onejar-maven-plugin</artifactId>
+				<version>1.3.0</version>
+
+				<executions>
+					<execution>
+						<goals>
+							<goal>one-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+
+
+			<!-- Deploy -->
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>upload-files</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<tasks>
+<!-- 								 <scp file="${basedir}/target/ssase-core-1.0.1.one-jar.jar" todir="tao@172.16.177.128:/home/tao" password="Monday22" /> -->
+								  <scp file="${basedir}/target/ssase-core-1.0.1.one-jar.jar" todir="tao@147.188.200.124://home/tao" port="22" password="cercia" /> <!--port="1111" -->
+								 
+							</tasks>
+						</configuration>
+						
+					</execution>
+				</executions>
+				<dependencies>
+							<dependency>
+								<groupId>ant</groupId>
+								<artifactId>ant-jsch</artifactId>
+								<version>1.6.5</version>
+							</dependency>
+							<dependency>
+								<groupId>com.jcraft</groupId>
+								<artifactId>jsch</artifactId>
+								<version>0.1.42</version>
+							</dependency>
+						</dependencies>
+			</plugin>
+			
+				<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+                <version>2.6</version>
+				<configuration>
+                         <skip>true</skip>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+	</build>
+  	
+  	
+  
+  <pluginRepositories>
+		<pluginRepository>
+			<id>onejar-maven-plugin.googlecode.com</id>
+			<url>http://onejar-maven-plugin.googlecode.com/svn/mavenrepo</url>
+		</pluginRepository>
+	</pluginRepositories>
+</project>

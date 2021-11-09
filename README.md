@@ -1,4 +1,4 @@
-# MMO: A Meta-Multi-Objectivization Model for Software Configuration Tuning
+# Multi-Objectivizing Software Configuration Tuning
 
 This repository contains the data and code for the following paper:
 

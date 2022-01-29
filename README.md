@@ -4,6 +4,30 @@ This repository contains the data and code for the following paper:
 
 > Tao Chen and Miqing Li. 2021. Multi-Objectivizing Software Configuration Tuning. In Proceedings of The 29th ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2021). ACM, 13 pages. DOI: 10.1145/3468264.3468555
 
+Bibtex citation:
+
+> @inproceedings{ChenLiFSE22,
+  author    = {Tao Chen and
+               Miqing Li},
+  editor    = {Diomidis Spinellis and
+               Georgios Gousios and
+               Marsha Chechik and
+               Massimiliano Di Penta},
+  title     = {Multi-objectivizing software configuration tuning},
+  booktitle = {{ESEC/FSE} '21: 29th {ACM} Joint European Software Engineering Conference
+               and Symposium on the Foundations of Software Engineering, Athens,
+               Greece, August 23-28, 2021},
+  pages     = {453--465},
+  publisher = {{ACM}},
+  year      = {2021},
+  url       = {https://doi.org/10.1145/3468264.3468555},
+  doi       = {10.1145/3468264.3468555},
+  timestamp = {Sat, 08 Jan 2022 02:24:42 +0100},
+  biburl    = {https://dblp.org/rec/conf/sigsoft/0001L21.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+
 ## Introduction
 
 Automatically tuning software configuration for optimizing a single performance attribute (e.g., minimizing latency) is not trivial, due to the nature of the configuration systems (e.g., complex landscape and expensive measurement). To deal with the problem, existing work has been focusing on developing various effective optimizers. However, a prominent issue that all these optimizers need to take care of is how to avoid the search being trapped in local optima — a hard nut to crack for software configuration tuning due to its rugged and sparse landscape, and neighboring configurations tending to behave very differently. Overcoming such in an expensive mea- surement setting is even more challenging. In this work, we take a different perspective to tackle this issue. Instead of focusing on improving the optimizer, we work on the level of optimization model. We do this by proposing a meta multi-objectivization model (MMO) that considers an auxiliary performance objective (e.g., throughput in addition to latency). What makes this model unique is that we do not optimize the auxiliary performance objective, but rather use it to make similarly-performing while different configurations less comparable (i.e. Pareto nondominated to each other), thus preventing the search from being trapped in local optima.

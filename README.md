@@ -6,7 +6,8 @@ This repository contains the data and code for the following paper:
 
 Bibtex citation:
 
-> @inproceedings{ChenLiFSE22,
+``` 
+@inproceedings{ChenLiFSE22,
   author    = {Tao Chen and
                Miqing Li},
   editor    = {Diomidis Spinellis and
@@ -26,7 +27,7 @@ Bibtex citation:
   biburl    = {https://dblp.org/rec/conf/sigsoft/0001L21.bib},
   bibsource = {dblp computer science bibliography, https://dblp.org}
 }
-
+```
 
 ## Introduction
 
